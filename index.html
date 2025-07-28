@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MultiTool Web App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4c3;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input, select, button {
+      margin: 10px;
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .tool {
+      margin: 20px 0;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 12px;
+      color: #555;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>MultiTool</h1>
+
+    <!-- Photo Size Reducer -->
+    <div class="tool">
+      <h2>Photo Size Reducer</h2>
+      <input type="file" id="reduceInput" accept="image/*">
+      <input type="number" id="sizeInput" placeholder="Size in KB">
+      <button onclick="reduceSize()">Reduce Size</button>
+      <a id="reduceLink" style="display:none;">Download</a>
+    </div>
+
+    <!-- Photo Height & Width Adjuster -->
+    <div class="tool">
+      <h2>Photo Height & Width Adjuster</h2>
+      <input type="file" id="adjustInput" accept="image/*">
+      <input type="number" id="newHeight" placeholder="New Height">
+      <input type="number" id="newWidth" placeholder="New Width">
+      <button onclick="adjustDimensions()">Adjust Dimensions</button>
+      <a id="adjustLink" style="display:none;">Download</a>
+    </div>
+
+    <!-- Photo Converter -->
+    <div class="tool">
+      <h2>Photo Converter</h2>
+      <input type="file" id="convertInput" accept="image/*">
+      <select id="convertFormat">
+        <option value="jpeg">JPEG</option>
+        <option value="png">PNG</option>
+        <option value="webp">WEBP</option>
+        <option value="pdf">PDF</option>
+      </select>
+      <button onclick="convertImage()">Convert</button>
+      <a id="convertLink" style="display:none;">Download</a>
+    </div>
+
+    <!-- Age Calculator -->
+    <div class="tool">
+      <h2>Age Calculator</h2>
+      <input type="date" id="birthDate">
+      <button onclick="calculateAge()">Calculate Age</button>
+      <p id="ageResult"></p>
+    </div>
+
+    <!-- Date Difference Calculator -->
+    <div class="tool">
+      <h2>Date Difference Calculator</h2>
+      <input type="date" id="startDate">
+      <input type="date" id="endDate">
+      <button onclick="calculateDateDifference()">Calculate Difference</button>
+      <p id="dateDifferenceResult"></p>
+    </div>
+
+    <!-- EMI Calculator -->
+    <div class="tool">
+      <h2>EMI Calculator</h2>
+      <input type="number" id="loanAmount" placeholder="Loan Amount">
+      <input type="number" id="interestRate" placeholder="Interest Rate">
+      <input type="number" id="loanTenure" placeholder="Loan Tenure (months)">
+      <button onclick="calculateEMI()">Calculate EMI</button>
+      <p id="emiResult"></p>
+    </div>
+
+    <!-- SIP Calculator -->
+    <div class="tool">
+      <h2>SIP Calculator</h2>
+      <input type="number" id="sipAmount" placeholder="Monthly SIP Amount">
+      <input type="number" id="sipRate" placeholder="Annual Interest Rate">
+      <input type="number" id="sipTenure" placeholder="Tenure (years)">
+      <button onclick="calculateSIP()">Calculate SIP</button>
+      <p id="sipResult"></p>
+    </div>
+
+    <!-- Total Interest Calculator -->
+    <div class="tool">
+      <h2>Total Interest Calculator</h2>
+      <input type="number" id="principalAmount" placeholder="Principal Amount">
+      <input type="number" id="annualRate" placeholder="Annual Interest Rate">
+      <input type="number" id="timePeriod" placeholder="Time Period (years)">
+      <button onclick="calculateTotalInterest()">Calculate Interest</button>
+      <p id="interestResult"></p>
+    </div>
+  </div>
+
+  <div class="footer">Site made by BIPROROY</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
